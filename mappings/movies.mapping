@@ -193,6 +193,23 @@
           }
         }
       },
+      "ratings": {
+        "type": "nested",
+        "properties": {
+          "userId": {
+            "type": "integer"
+          },
+          "movieId": {
+            "type": "integer"
+          },
+          "rating": {
+            "type": "float"
+          },
+          "timestamp": {
+            "type": "date"
+          }
+        }
+      },
       "cast": {
         "type": "nested",
         "properties": {
