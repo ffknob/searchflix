@@ -1,0 +1,21 @@
+<%- include('includes/head.ejs') %>
+
+<form
+  action="/search"
+  method="POST"
+  id="searchform"
+>
+  <input id="field" type="hidden" name="field" value="overview"/>
+  <input id="terms" type="text" name="terms" onkeypress="onKeyPressSearchField(event)"/>
+</form>
+
+<% if (results) { %>
+  <div id="results">
+    Total: <span id="results-total"><%= results.hits.total.value %></span>
+
+    <% results.hits.hits.forEach(function(result) { %>
+      <%- include('movie', { movie: result }); %>
+    <% }); %>
+
+  </div>
+<% } %>
