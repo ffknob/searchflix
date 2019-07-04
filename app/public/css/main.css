@@ -1,6 +1,57 @@
-.key {
-  font-weight: bold;
+body {
+  background-color: black;
 }
 
-.value {
+.movie-poster {
+  width: 120px;
+  float: left;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
 }
+
+.movie-overview {
+  text-align: justify;
+}
+
+.movie-title {
+}
+
+.movie-overview {
+}
+
+.movie-genres {
+}
+
+/*.movies-container {
+  display: grid;
+  grid-gap: 5rem;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, auto));
+}
+
+.movie-container {
+  display: grid;
+  grid-gap: 1rem;
+  align-content: start;
+  grid-template-columns: 30% 60%;
+  grid-template: 
+    "title title"
+    "poster details"
+    "poster genders";
+}
+
+.movie-container__title {
+  grid-area: title;
+}
+
+.movie-container__poster {
+  grid-area: poster;
+}
+
+.movie-container__details {
+  grid-area: details;
+  text-align: justify;
+}
+
+.movie-container__genders {
+  grid-area: genders;
+}*/

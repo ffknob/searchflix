@@ -13,6 +13,7 @@ exports.search = (req, res, next) => {
     if (err) {
       console.log(err);
     } else {
+console.log(JSON.stringify(results));
       res.render(
         'index',
         {

@@ -1,21 +1,38 @@
 <%- include('includes/head.ejs') %>
 
-<form
-  action="/search"
-  method="POST"
-  id="searchform"
->
-  <input id="field" type="hidden" name="field" value="overview"/>
-  <input id="terms" type="text" name="terms" onkeypress="onKeyPressSearchField(event)"/>
-</form>
+<section id="main-banner" class="hero is-danger is-large">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Searchflix
+      </h1>
+      <h2 class="subtitle">
+        An Elasticsearch ...
+      </h2>
+
+      <form
+        action="/search"
+        method="POST"
+        id="searchform"
+      >
+        <input id="field" type="hidden" name="field" value="overview"/>
+        <input id="terms" type="text" class="input is-large is-rounded" placeholder="What do you want to watch today?" name="terms" onkeypress="onKeyPressSearchField(event)"/>
+      </form>
+    </div>
+  </div>
+</section>
 
 <% if (results) { %>
-  <div id="results">
-    Total: <span id="results-total"><%= results.hits.total.value %></span>
+  <section id="results" class="section">
+    <div class="content">
+      Total: <span id="results-total"><%= results.hits.total.value %></span>
+    </div>
 
-    <% results.hits.hits.forEach(function(result) { %>
-      <%- include('movie', { movie: result }); %>
-    <% }); %>
+    <div class="columns is-multiline is-centered">
+      <% results.hits.hits.forEach(function(result) { %>
+        <%- include('movie', { movie: result }); %>
+      <% }); %>
+    </div>
 
-  </div>
+  </section>
 <% } %>
