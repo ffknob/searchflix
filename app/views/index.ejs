@@ -1,6 +1,9 @@
 <%- include('includes/head.ejs') %>
 
-<section id="main-banner" class="hero is-danger is-large">
+<section
+  id="main-banner"
+  class="hero is-danger <% if (!results) { %>is-large<% } %>"
+>
   <div class="hero-body">
     <div class="container">
       <h1 class="title">
@@ -10,29 +13,31 @@
         An Elasticsearch ...
       </h2>
 
-      <form
-        action="/search"
-        method="POST"
-        id="searchform"
-      >
-        <input id="field" type="hidden" name="field" value="overview"/>
-        <input id="terms" type="text" class="input is-large is-rounded" placeholder="What do you want to watch today?" name="terms" onkeypress="onKeyPressSearchField(event)"/>
+      <form action="/search" method="POST" id="searchform">
+        <input id="field" type="hidden" name="field" value="overview" />
+        <input
+          id="terms"
+          type="text"
+          class="input is-large is-rounded"
+          placeholder="What do you want to watch today?"
+          name="terms"
+          autocomplete="off"
+          onkeypress="onKeyPressSearchField(event)"
+        />
       </form>
     </div>
   </div>
 </section>
 
 <% if (results) { %>
-  <section id="results" class="section">
-    <div class="content">
-      Total: <span id="results-total"><%= results.hits.total.value %></span>
-    </div>
+<section id="nav">
+  <%- include('nav', { results: results }) %>
+</section>
 
-    <div class="columns is-multiline is-centered">
-      <% results.hits.hits.forEach(function(result) { %>
-        <%- include('movie', { movie: result }); %>
-      <% }); %>
-    </div>
-
-  </section>
+<section id="results" class="section">
+  <div class="columns is-multiline is-centered">
+    <% results.hits.hits.forEach(function(result) { %>
+      <%- include('movie', { movie: result }); %> <% }); %>
+  </div>
+</section>
 <% } %>

@@ -2,6 +2,9 @@ body {
   background-color: black;
 }
 
+.movie-box {
+}
+
 .movie-poster {
   width: 120px;
   float: left;
@@ -11,6 +14,7 @@ body {
 
 .movie-overview {
   text-align: justify;
+  min-height: 100px;
 }
 
 .movie-title {
@@ -19,7 +23,15 @@ body {
 .movie-overview {
 }
 
+.movie-info {
+  display: flex;
+  flex-direction: column;
+}
+
 .movie-genres {
+}
+
+.movie-numbers {
 }
 
 /*.movies-container {
