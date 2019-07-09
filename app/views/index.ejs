@@ -13,18 +13,8 @@
         An Elasticsearch ...
       </h2>
 
-      <form action="/search" method="POST" id="searchform">
-        <input id="field" type="hidden" name="field" value="overview" />
-        <input
-          id="terms"
-          type="text"
-          class="input is-large is-rounded"
-          placeholder="What do you want to watch today?"
-          name="terms"
-          autocomplete="off"
-          onkeypress="onKeyPressSearchField(event)"
-        />
-      </form>
+      <%- include('search-form'); %>
+
     </div>
   </div>
 </section>
@@ -37,7 +27,8 @@
 <section id="results" class="section">
   <div class="columns is-multiline is-centered">
     <% results.hits.hits.forEach(function(result) { %>
-      <%- include('movie', { movie: result }); %> <% }); %>
+      <%- include('movie', { movie: result }); %>
+    <% }); %>
   </div>
 </section>
 <% } %>
