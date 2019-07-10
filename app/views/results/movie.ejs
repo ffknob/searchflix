@@ -16,7 +16,7 @@
 
     <div class="block movie-overview">
       <p class="content is-small">
-        <%= movie._source.overview %>
+        <%- highlight(movie._source.overview, movie.highlight.overview) %>
       </p>
     </div>
 
@@ -40,7 +40,7 @@
                 <div class="level-item has-text-centered">
                     <div>
                     <p class="heading">Budget</p>
-                    <p class="title">$ <%= Math.trunc(movie._source.budget/10000) %>M</p>
+                    <p class="title">$ <%= Math.trunc(movie._source.budget/1000000) %>M</p>
                     </div>
                 </div>
             </nav>

@@ -1,4 +1,4 @@
-<%- include('includes/head.ejs') %>
+<%- include('page/head.ejs') %>
 
 <section
   id="main-banner"
@@ -10,25 +10,17 @@
         Searchflix
       </h1>
       <h2 class="subtitle">
-        An Elasticsearch ...
+        An Elasticsearch's features demonstration app...
       </h2>
 
-      <%- include('search-form'); %>
+      <%- include('search/search-form'); %>
 
     </div>
   </div>
 </section>
 
 <% if (results) { %>
-<section id="nav">
-  <%- include('nav', { results: results }) %>
-</section>
-
-<section id="results" class="section">
-  <div class="columns is-multiline is-centered">
-    <% results.hits.hits.forEach(function(result) { %>
-      <%- include('movie', { movie: result }); %>
-    <% }); %>
-  </div>
-</section>
+  <%- include('results/results.ejs') %>
 <% } %>
+
+<%- include('page/end.ejs') %>

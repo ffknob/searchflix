@@ -2,6 +2,10 @@ body {
   background-color: black;
 }
 
+em {
+  background-color: yellow;
+}
+
 .movie-box {
 }
 

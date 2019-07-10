@@ -9,6 +9,8 @@ const indexRoutes = require('./routes/index');
 const indicesRoutes = require('./routes/indices');
 const searchRoutes = require('./routes/search');
 
+const helpers = require('./helpers/helpers');
+
 const app = express();
 
 app.use(bodyParser.json());
@@ -24,6 +26,10 @@ app.set('view engine', 'ejs');
 app.use('/', indexRoutes);
 app.use('/indices', indicesRoutes);
 app.use('/search', searchRoutes);
+
+app.locals = {
+    highlight: helpers.highlight
+};
 
 const PORT = process.env.PORT || 3000;
 
