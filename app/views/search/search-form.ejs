@@ -1,5 +1,10 @@
 <form action="/search" method="POST" id="searchform">
-    <input id="field" type="hidden" name="field" value="overview" />
+    <input id="searchField" type="hidden" name="searchField" value="overview" />
+    <input id="highlightFields" type="hidden" name="highlightFields" value="overview" />
+    <input id="highlightFields" type="hidden" name="highlightFields" value="title" />
+    <input id="termsAggregationFields" type="hidden" name="termsAggregationFields" value="genres.name" />
+    <input id="termsAggregationFields" type="hidden" name="termsAggregationFields" value="original_language" />
+
     <div>
         <input
         id="terms"

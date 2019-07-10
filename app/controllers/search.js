@@ -4,10 +4,14 @@ const Search = require('../models/search');
 
 exports.search = (req, res, next) => {
   const index = req.body.index;
-  const field = req.body.field;
+  const searchField = req.body.searchField;
+  const highlightFields = req.body.highlightFields;
+  const termsAggregationFields = req.body.termsAggregationFields;
   const terms = req.body.terms;
 
-  const search = new Search(index, field, terms);
+console.log(req.body);
+
+  const search = new Search(index, searchField, terms);
 
   Elasticsearch.matchQuery(search, (err, results) => {
     if (err) {
