@@ -114,6 +114,9 @@
                 "ignore_above": 256
               }
             }
+          },
+          "location": {
+            "type": "geo_point"
           }
         }
       },
