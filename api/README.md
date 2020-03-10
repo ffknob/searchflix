@@ -1,0 +1,39 @@
+# magister-net-api
+Magister Net (api)
+
+
+# .env
+
+```
+ELASTICSEARCH_HOST=localhost
+ELASTICSEARCH_PORT=9200
+ELASTICSEARCH_PROTOCOL=http
+
+ELASTIC_APM_SERVICE_NAME=magister-net
+ELASTIC_APM_SERVER_URL=http://localhost:8200
+ELASTIC_APM_LOG_LEVEL=debug
+
+MONGODB_HOST=localhost
+MONGODB_USERNAME=root
+MONGODB_PASSWORD=<secret>
+MONGODB_DATABASE=magister
+MONGODB_SSL=false
+#MONGODB_REPLICA_SET=Cluster0-shard-0
+MONGODB_AUTH_SOURCE=admin
+MONGODB_RETRY_WRITES=true
+MONGODB_RETRY_W=majority
+
+
+REDIS_HOST=localhost
+REDIS_PORT=6379
+REDIS_PASSWORD=<secret>
+REDIS_DB=0
+
+JWT_TOKEN_SECRET=<secret>
+```
+
+* Executando em `docker-compose`:
+
+```
+ELASTIC_APM_SERVER_URL=http://apm-server:8200
+```

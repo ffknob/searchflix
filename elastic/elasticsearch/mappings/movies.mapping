@@ -1,0 +1,323 @@
+{
+  "settings": {
+    "number_of_shards": 1,
+    "number_of_replicas": 0
+  },
+  "mappings": {
+    "properties": {
+      "adult": {
+        "type": "boolean"
+      },
+      "belongs_to_collection": {
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "poster_path": {
+            "type": "keyword",
+            "ignore_above": 256
+          },
+          "backdrop_path": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "budget": {
+        "type": "long"
+      },
+      "genres": {
+        "type": "nested",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "text",
+            "analyzer": "english",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          }
+        }
+      },
+      "genres_list": {
+        "type": "text",
+        "analyzer": "english",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "homepage": {
+        "type": "keyword",
+        "ignore_above": 256
+      },
+      "id": {
+        "type": "integer"
+      },
+      "imdb_id": {
+        "type": "keyword",
+        "ignore_above": 256
+      },
+      "original_language": {
+        "type": "keyword",
+        "ignore_above": 256
+      },
+      "original_title": {
+        "type": "text",
+        "analyzer": "english"
+      },
+      "overview": {
+        "type": "text",
+        "analyzer": "english"
+      },
+      "popularity": {
+        "type": "float"
+      },
+      "poster_path": {
+        "type": "keyword",
+        "ignore_above": 256
+      },
+      "production_companies": {
+        "type": "nested",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          }
+        }
+      },
+      "production_countries": {
+        "type": "nested",
+        "properties": {
+          "iso_3166_1": {
+            "type": "keyword",
+            "ignore_above": 256
+          },
+          "name": {
+            "type": "text",
+            "analyzer": "english",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "location": {
+            "type": "geo_point"
+          }
+        }
+      },
+      "production_countries_name_list": {
+        "type": "text",
+        "analyzer": "english",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "production_countries_location_list": {
+        "type": "geo_point"
+      },
+      "release_date": {
+        "type": "date"
+      },
+      "revenue": {
+        "type": "long"
+      },
+      "runtime": {
+        "type": "float"
+      },
+      "spoken_languages": {
+        "type": "nested",
+        "properties": {
+          "iso_639_1": {
+            "type": "keyword",
+            "ignore_above": 256
+          },
+          "name": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "status": {
+        "type": "keyword",
+        "ignore_above": 256
+      },
+      "tagline": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "title": {
+        "type": "text",
+        "analyzer": "english",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "video": {
+        "type": "boolean"
+      },
+      "vote_average": {
+        "type": "float"
+      },
+      "vote_count": {
+        "type": "long"
+      },
+      "join": {
+        "type": "join",
+        "relations": {
+          "movie": [
+            "keywords",
+            "credits",
+            "ratings"
+          ]
+        }
+      },
+      "keywords": {
+        "type": "nested",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "text",
+            "analyzer": "english",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          }
+        }
+      },
+      "keywords_list": {
+        "type": "text",
+        "analyzer": "english",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "ratings": {
+        "type": "nested",
+        "properties": {
+          "userId": {
+            "type": "integer"
+          },
+          "movieId": {
+            "type": "integer"
+          },
+          "rating": {
+            "type": "float"
+          },
+          "timestamp": {
+            "type": "date"
+          }
+        }
+      },
+      "cast": {
+        "type": "nested",
+        "properties": {
+          "cast_id": {
+            "type": "integer"
+          },
+          "character": {
+            "type": "keyword",
+            "ignore_above": 256
+          },
+          "credit_id": {
+            "type": "keyword",
+            "ignore_above": 256
+          },
+          "gender": {
+            "type": "integer"
+          },
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "keyword",
+            "ignore_above": 256
+          },
+          "order": {
+            "type": "integer"
+          },
+          "profile_path": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "crew": {
+        "type": "nested",
+        "properties": {
+          "credit_id": {
+            "type": "keyword",
+            "ignore_above": 256
+          },
+          "department": {
+            "type": "keyword",
+            "ignore_above": 256
+          },
+          "gender": {
+            "type": "integer"
+          },
+          "id": {
+            "type": "integer"
+          },
+          "job": {
+            "type": "keyword",
+            "ignore_above": 256
+          },
+          "name": {
+            "type": "keyword",
+            "ignore_above": 256
+          },
+          "profile_path": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      }
+    }
+  }
+}
